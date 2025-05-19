@@ -1,0 +1,18 @@
+package academy.devdojo.maratonajava.javacore.A16Associação.Test;
+
+import java.util.Scanner;
+
+public class LeituraDoTecladoTest {
+    public static void main(String[] args) {
+        Scanner entrada = new Scanner(System.in);
+        System.out.println("Digite seu nome: ");
+        String nome = entrada.nextLine();
+        System.out.println("Digite sua idade:");
+        int idade = entrada.nextInt();
+        System.out.println("Digite M ou F para seu sexo:");
+        char sexo = entrada.next().charAt(0);
+        System.out.println("Nome: " + nome);
+        System.out.println("Idade: " + idade);
+        System.out.println("Sexo: " + sexo);
+    }
+}

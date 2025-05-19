@@ -1,0 +1,11 @@
+package academy.devdojo.maratonajava.javacore.A24Exception.Dominio;
+
+import java.io.Closeable;
+import java.io.IOException;
+public class Leitor2 implements Closeable {
+
+    @Override
+    public void close() throws IOException {
+        System.out.println("Fechando o leitor 2");
+    }
+}
