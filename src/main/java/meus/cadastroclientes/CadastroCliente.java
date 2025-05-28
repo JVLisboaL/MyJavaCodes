@@ -32,7 +32,7 @@ public class CadastroCliente {
                     removerClientePorId();
                     break;
                 case 6:
-                    atualizarCliente();
+                    atualizarClientePeloId();
                     break;
                 case 7:
                     System.out.println("Saindo...");
@@ -40,7 +40,7 @@ public class CadastroCliente {
                 default:
                     System.out.println("Opção inválida.");
             }
-        } while (opcao != 6);
+        } while (opcao != 7);
         scanner.close();
     }
     private static void exibirMenu(){
@@ -50,7 +50,7 @@ public class CadastroCliente {
             System.out.println("3. Buscar cliente por nome");
             System.out.println("4. Buscar cliente por ID");
             System.out.println("5. Remover cliente pelo ID");
-            System.out.println("6. Atualizar cliente");
+            System.out.println("6. Atualizar cliente pelo ID");
             System.out.println("7. Sair");
             System.out.print("Escolha uma opção: ");
     }
@@ -136,8 +136,38 @@ public class CadastroCliente {
         }
     }
 
-    private static void atualizarCliente(){
-        
+    private static void atualizarClientePeloId(){
+        System.out.println("Digite o Id a atualizar");
+        String idBuscado = scanner.nextLine();
+
+        boolean encontrado = false;
+        for (Cliente cliente : clientes) {
+            if (cliente.getId().equals(idBuscado)) {
+                System.out.println("Digite o novo nome: ");
+                String novoNome = scanner.nextLine();
+                System.out.println("Digite o novo email: ");
+                String novoEmail = scanner.nextLine();
+                System.out.println("Digite o novo telefone: ");
+                String novoTelefone = scanner.nextLine();
+
+                if (!emailValido(novoEmail)) {
+                    System.out.println("Email inválido!");
+                    return;
+                }
+                if (!telefoneValido(novoTelefone)) {
+                    System.out.println("Telefone inválido!");
+                    return;
+                }
+                cliente.setNome(novoNome);
+                cliente.setEmail(novoEmail);
+                cliente.setTelefone(novoTelefone);
+                System.out.println("Cliente atualizado com sucesso!");
+                encontrado = true;
+            }
+        }
+        if (!encontrado) {
+            System.out.println("Cliente não encontrado.");
+        }
     }
 
     private static void removerClientePorId(){
