@@ -13,7 +13,7 @@ class MangaByIdComparator implements Comparator<Manga> {
     }
 }
 
-public class MangaSorteTest {
+public class MangaSortTest {
     public static void main(String[] args) {
         List<Manga> mangas = new ArrayList<>(6);
         mangas.add(new Manga(1L, "Attack on Titan", 19.9));
